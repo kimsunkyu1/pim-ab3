@@ -111,13 +111,14 @@ public class MemberViewController implements Initializable {
 	@FXML 
 	private void handleCreate() { // event source, listener, handler
 		if(tfID.getText().length() > 0) {
+			
 			Member newMember = 
 					new Member(tfID.getText(), tfPW.getText(), tfName.getText(), "");
 			data.add(newMember);			
 			tableViewMember.setItems(data);
 			memberService.create(newMember);
 		} else
-			showAlert("ID 입력오류");
+			showAlert("ID 입력오dsadsadsadsajnfdsakjh류");
 	}
 	@FXML 
 	private void handleUpdate() {
