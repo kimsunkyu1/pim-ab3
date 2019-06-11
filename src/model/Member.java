@@ -7,22 +7,27 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Member { // DB의 레코드와 매핑되는 객체
+
 	private StringProperty uid; // DB의 필드와 매핑
 	private StringProperty upw;
 	private StringProperty uname;
+	private StringProperty ubirthday;
+
 	private final StringProperty mobilePhone;
 	/*
     private final IntegerProperty zipcode;
     private ObjectProperty<LocalDate> birthday;
 	*/
 	public Member() {
-		this(null, null, null, null);
+		this(null, null, null, null, null);
 	}
 	
-	public Member(String id, String pw, String name, String mobilePhone) {
+	public Member(String id, String pw, String name, String birthday ,String mobilePhone) {
 		this.uid = new SimpleStringProperty(id);
 		this.uname = new SimpleStringProperty(name);
 		this.upw = new SimpleStringProperty(pw);
+		this.ubirthday = new SimpleStringProperty(birthday);
+
 		this.mobilePhone = new SimpleStringProperty(mobilePhone);
 	}
 	
@@ -54,6 +59,16 @@ public class Member { // DB의 레코드와 매핑되는 객체
     }
     public StringProperty unameProperty() {
         return uname;
+    }
+    
+    public String getUbirthday() {
+    	return this.ubirthday.get();
+    }
+    public void setUbirthday(String ubirthday) {
+    	this.ubirthday.set(ubirthday);
+    }
+    public StringProperty ubirthdayProperty() {
+        return ubirthday;
     }
     
 	public String getMobilePhone() {
